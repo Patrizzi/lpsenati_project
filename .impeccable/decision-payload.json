@@ -1,0 +1,251 @@
+{
+  "title": "Elige el mundo visual para TechStock",
+  "question": "El sorteo asignó Ficha de Calibración Metrología. Puedes elegirlo, optar por una alternativa o volver a tirar.",
+  "options": [
+    {
+      "id": "assigned",
+      "kind": "assigned",
+      "label": "Ficha de Calibración Metrología",
+      "kicker": "THE ROLL",
+      "lineage": "Certificados de calibración e inspección de hardware técnico",
+      "thesis": "El inventario como un certificado de calibración donde cada umbral se audita al milímetro.",
+      "palette": [
+        "#EEF2EE",
+        "#141816",
+        "#0F5A47",
+        "#D9381E"
+      ],
+      "materials": [
+        "cartulina salvia pálida",
+        "retícula de 1px y sellos de umbral"
+      ],
+      "viewport": "Riel lateral en verde instrumento oscuro, 4 celdas de métricas con marcas de esquina, barra de tolerancia de stock en vivo y tabla de movimientos con deltas signados.",
+      "risk": "Puede sentirse demasiado austero si no se equilibran los pesos tipográficos de los titulares.",
+      "raised": [
+        {
+          "from": "challenger-zoo",
+          "raise": "Los estados de alerta y categoría emplean cápsulas cromáticas sólidas e inequívocas."
+        },
+        {
+          "from": "challenger-jcard",
+          "raise": "El historial de entradas y salidas se alinea como una columna continua de saldo acumulado al margen derecho."
+        },
+        {
+          "from": "challenger-video",
+          "raise": "Las acciones rápidas por fila se agrupan en un riel compacto de desencadenadores directos."
+        },
+        {
+          "from": "challenger-atlas",
+          "raise": "La severidad del déficit de stock escala visualmente el grosor y diámetro del indicador de alerta."
+        },
+        {
+          "from": "challenger-ikeda",
+          "raise": "Las cifras de SKU, precios en S/ y existencias se alinean en columnas monoespaciadas de precisión."
+        }
+      ],
+      "html": ".impeccable/mocks/decision/assigned.html",
+      "comp": ".impeccable/mocks/decision/assigned.png"
+    },
+    {
+      "id": "model-pick",
+      "kind": "pick",
+      "label": "Manifiesto de Almacén Industrial",
+      "kicker": "IMPECCABLE’S PICK",
+      "lineage": "Etiquetas térmicas de logística y manifiestos de carga",
+      "thesis": "Control de inventario inspirado en manifiestos de despacho con jerarquía industrial de alto contraste.",
+      "palette": [
+        "#F4F1EA",
+        "#18181B",
+        "#EA580C",
+        "#27272A"
+      ],
+      "materials": [
+        "papel manila técnico",
+        "bloques de código de barras y franjas de estado"
+      ],
+      "viewport": "Navegación lateral en carbón profundo, cabeceras con franja naranja de seguridad, matriz de existencias por familia y monitor de alertas con déficit directo.",
+      "risk": "Es la dirección más cercana al estándar esperado en herramientas de logística e inventario.",
+      "html": ".impeccable/mocks/decision/model-pick.html",
+      "comp": ".impeccable/mocks/decision/model-pick.png"
+    },
+    {
+      "id": "challenger-plate",
+      "kind": "challenger",
+      "catalogId": "design-annual-s-plate-section",
+      "label": "Pliego de Registro Editorial",
+      "verdict": "competitive",
+      "lineage": "Anuarios de diseño suizo con cruces de registro e impresión sobre papel no estucado",
+      "thesis": "El catálogo y sus existencias presentados con la limpieza de un pliego técnico impreso con marcas de registro.",
+      "palette": [
+        "#F5F4F6",
+        "#16181A",
+        "#DCDDF3",
+        "#C9C7C4"
+      ],
+      "materials": [
+        "papel neutro sin estucar",
+        "cruces de registro y filetes de 1px"
+      ],
+      "viewport": "Barra superior de tokens monoespaciados, cuadrícula continua dividida por filetes de 1px con cruces en las esquinas y sello circular de estado.",
+      "case": "Su cuadrícula de 1px y tipografía grotesca con etiquetas mono encajan de maravilla con tablas de inventario.",
+      "risk": "El acento lavanda requiere apoyo de colores semánticos fuertes para alertas críticas de stock cero.",
+      "html": ".impeccable/mocks/decision/challenger-plate.html",
+      "comp": ".impeccable/mocks/decision/challenger-plate.png",
+      "hero": "https://impeccable.style/worlds/cards/design-annual-s-plate-section-hero.webp",
+      "board": "https://impeccable.style/worlds/cards/design-annual-s-plate-section.webp"
+    },
+    {
+      "id": "challenger-zoo",
+      "kind": "challenger",
+      "catalogId": "aww2-zoo-gardens-guide-map",
+      "label": "Mapa de Lóbulos Cromáticos",
+      "verdict": "declined",
+      "lineage": "Mapas guía ilustrados de parques y jardines",
+      "thesis": "Áreas operativas separadas por contornos orgánicos de color plano.",
+      "palette": [
+        "#8ED462",
+        "#F5F1E4",
+        "#2C2E2A",
+        "#FF705D"
+      ],
+      "materials": [
+        "color plano sin grano",
+        "cápsulas de estado vibrantes"
+      ],
+      "viewport": "Paneles curvos de color plano con controles en forma de cápsula.",
+      "case": "Las formas orgánicas restan densidad y rigor a las tablas de códigos SKU y movimientos.",
+      "kept": "Cápsulas cromáticas de estado con indicador desplazable para filtros activos.",
+      "risk": "Baja densidad para listados extensos de productos tecnológicos.",
+      "hero": "https://impeccable.style/worlds/cards/aww2-zoo-gardens-guide-map-hero.webp",
+      "board": "https://impeccable.style/worlds/cards/aww2-zoo-gardens-guide-map.webp"
+    },
+    {
+      "id": "challenger-jcard",
+      "kind": "challenger",
+      "catalogId": "vernacular-ephemera-cassette-j-card",
+      "label": "Índice J-Card Pautado",
+      "verdict": "declined",
+      "lineage": "Tarjetas plegables J-Card de casetes pautadas a mano",
+      "thesis": "Entradas y salidas divididas como Lado A y Lado B sobre papel pautado.",
+      "palette": [
+        "#FFFFFF",
+        "#1E3A8A",
+        "#DC2626",
+        "#9CA3AF"
+      ],
+      "materials": [
+        "cartulina pautada",
+        "franja roja de marca"
+      ],
+      "viewport": "Lista en dos columnas pautadas con saldos alineados al margen derecho.",
+      "case": "La metáfora musical es ajena a la gestión de almacén tecnológico.",
+      "kept": "Alineación estricta al margen derecho para el saldo acumulado antes y después de cada movimiento.",
+      "risk": "Tono nostálgico que no refleja una herramienta empresarial de inventario.",
+      "hero": "https://impeccable.style/worlds/cards/vernacular-ephemera-cassette-j-card-hero.webp",
+      "board": "https://impeccable.style/worlds/cards/vernacular-ephemera-cassette-j-card.webp"
+    },
+    {
+      "id": "challenger-video",
+      "kind": "challenger",
+      "catalogId": "pop-culture-shelf-vertical-video-feed-surface",
+      "label": "Superficie Vertical de Foco Único",
+      "verdict": "declined",
+      "lineage": "Feeds verticales de medios a pantalla completa",
+      "thesis": "Un único producto ocupa toda la pantalla con riel derecho de acciones.",
+      "palette": [
+        "#09090B",
+        "#FFFFFF",
+        "#27272A"
+      ],
+      "materials": [
+        "lienzo a sangre",
+        "riel vertical de glifos"
+      ],
+      "viewport": "Vista individual por producto con acciones apiladas a la derecha.",
+      "case": "Inviable para escanear decenas de productos, comparar existencias o auditar movimientos en tabla.",
+      "kept": "Agrupación compacta de acciones rápidas en el extremo derecho de cada fila.",
+      "risk": "Rompe la escaneabilidad tabular indispensable en Operate.",
+      "hero": "https://impeccable.style/worlds/cards/pop-culture-shelf-vertical-video-feed-surface-hero.webp",
+      "board": "https://impeccable.style/worlds/cards/pop-culture-shelf-vertical-video-feed-surface.webp"
+    },
+    {
+      "id": "challenger-atlas",
+      "kind": "challenger",
+      "catalogId": "notation-diagram-systems-star-atlas",
+      "label": "Carta de Magnitudes Nocturna",
+      "verdict": "declined",
+      "lineage": "Atlas estelares con magnitudes por diámetro de punto y luz roja",
+      "thesis": "Existencias representadas por magnitud sobre fondo azul noche con alertas ámbar-rojo.",
+      "palette": [
+        "#0B132B",
+        "#F8FAFC",
+        "#F59E0B",
+        "#EF4444"
+      ],
+      "materials": [
+        "fondo azul profundo",
+        "anillos de magnitud en rojo nocturno"
+      ],
+      "viewport": "Panel oscuro con coordenadas tabulares y puntos de magnitud según volumen de stock.",
+      "case": "La cartografía celeste se aleja del dominio comercial de hardware y retail.",
+      "kept": "Escala de diámetro y anillo visual proporcional a la severidad del déficit en productos con stock bajo.",
+      "risk": "Exceso de abstracción en las vistas de reporte.",
+      "hero": "https://impeccable.style/worlds/cards/notation-diagram-systems-star-atlas-hero.webp",
+      "board": "https://impeccable.style/worlds/cards/notation-diagram-systems-star-atlas.webp"
+    },
+    {
+      "id": "challenger-ikeda",
+      "kind": "challenger",
+      "catalogId": "ikeda-datamatics",
+      "label": "Matriz Monocroma de Barras",
+      "verdict": "declined",
+      "lineage": "Instalaciones de datos en blanco y negro puro y retículas de códigos de barras",
+      "thesis": "El inventario reducido a columnas densas de códigos de barras y numeración monoespaciada.",
+      "palette": [
+        "#000000",
+        "#FFFFFF"
+      ],
+      "materials": [
+        "contraste binario puro",
+        "columnas de código de barras"
+      ],
+      "viewport": "Pantalla de alto contraste blanco y negro con barras verticales de densidad por SKU.",
+      "case": "La ausencia de color semántico dificulta distinguir alertas críticas de entradas normales en el uso diario.",
+      "kept": "Disciplina de columnas monoespaciadas de alta densidad para códigos SKU, precios y conteos.",
+      "risk": "Fatiga visual en sesiones largas de administración.",
+      "hero": "https://impeccable.style/worlds/cards/ikeda-datamatics-hero.webp",
+      "board": "https://impeccable.style/worlds/cards/ikeda-datamatics.webp"
+    }
+  ],
+  "reroll": {
+    "registers": [
+      "safer",
+      "bolder"
+    ]
+  },
+  "buildPath": {
+    "value": "code",
+    "toggle": true
+  },
+  "canon": true,
+  "canonCard": {
+    "kind": "canon",
+    "label": "Consola SaaS Oscura Estándar",
+    "thesis": "El estándar moderno de panel administrativo oscuro con acentos cian ejecutado con máxima pulcritud.",
+    "palette": [
+      "#0B1120",
+      "#1E293B",
+      "#38BDF8",
+      "#F8FAFC"
+    ],
+    "materials": [
+      "paneles slate oscuros",
+      "bordes sutiles y tarjetas de métricas"
+    ],
+    "viewport": "Navegación lateral oscura, 4 tarjetas de indicadores superiores, distribución por categorías y alertas de stock bajo.",
+    "risk": "Familiar y directo, aunque visualmente similar a otros paneles administrativos modernos.",
+    "html": ".impeccable/mocks/decision/canon.html",
+    "comp": ".impeccable/mocks/decision/canon.png"
+  },
+  "steer": true
+}

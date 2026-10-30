@@ -1,0 +1,183 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-29T22:06:00Z",
+  "title": "Design System: TechStock",
+  "extensions": {
+    "colorMeta": {
+      "ground": {
+        "role": "neutral",
+        "displayName": "Uncoated Ground",
+        "canonical": "#F5F4F6",
+        "tonalRamp": ["#16181A", "#33363B", "#5C6067", "#8C9199", "#C1C5CC", "#DCDEE3", "#EBECEF", "#F5F4F6"]
+      },
+      "ink": {
+        "role": "primary",
+        "displayName": "Deep Carbon Ink",
+        "canonical": "#16181A",
+        "tonalRamp": ["#0B0C0D", "#16181A", "#2E3236", "#4A4E54", "#686D73", "#9499A0", "#C9C7C4", "#F5F4F6"]
+      },
+      "seal": {
+        "role": "secondary",
+        "displayName": "Periwinkle Verification Seal",
+        "canonical": "#DCDDF3",
+        "tonalRamp": ["#25274D", "#3B3E75", "#585D9E", "#7C82C7", "#A4A9E8", "#C1C5F0", "#DCDDF3", "#F2F3FC"]
+      },
+      "hairline": {
+        "role": "neutral",
+        "displayName": "Structural Hairline",
+        "canonical": "#C9C7C4",
+        "tonalRamp": ["#2C2B29", "#4A4946", "#6E6C68", "#97948F", "#B4B1AB", "#C9C7C4", "#E2E0DC", "#F5F4F2"]
+      },
+      "alert-critical": {
+        "role": "neutral",
+        "displayName": "Critical Alert Ink",
+        "canonical": "#B91C1C",
+        "tonalRamp": ["#450A0A", "#7F1D1D", "#991B1B", "#B91C1C", "#DC2626", "#EF4444", "#FCA5A5", "#FEF2F2"]
+      },
+      "alert-verified": {
+        "role": "neutral",
+        "displayName": "Verified Stock Ink",
+        "canonical": "#15803D",
+        "tonalRamp": ["#052E16", "#14532D", "#166534", "#15803D", "#16A34A", "#22C55E", "#86EFAC", "#F0FDF4"]
+      },
+      "dark-ground": {
+        "role": "neutral",
+        "displayName": "Dark Uncoated Carbon Ground",
+        "canonical": "#121316",
+        "tonalRamp": ["#070809", "#0E1013", "#121316", "#181A1E", "#23262D", "#2E3239", "#40454E", "#F0EFEA"]
+      },
+      "dark-ink": {
+        "role": "primary",
+        "displayName": "Dark Warm Chalk Ink",
+        "canonical": "#F0EFEA",
+        "tonalRamp": ["#121316", "#2E3239", "#5C6069", "#8E929B", "#B4B7BE", "#DCDDF3", "#EBEAE5", "#F0EFEA"]
+      }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Primary operational sheet titles and pliego headings." },
+      "headline": { "displayName": "Headline", "purpose": "Module card titles and summary headers." },
+      "title": { "displayName": "Title", "purpose": "Section dividers and analytical group labels." },
+      "body": { "displayName": "Body", "purpose": "Operational prose, product descriptions, and notifications." },
+      "label": { "displayName": "Mono Label", "purpose": "SKU codes, tabular metrics, Soles currency, and token coordinate bars." }
+    },
+    "shadows": [
+      { "name": "zero-shadow", "value": "none", "purpose": "All plates, tables, and cards remain structurally flat at rest." }
+    ],
+    "motion": [
+      { "name": "ease-standard", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "Deceleration curve for buttons and interactive controls." },
+      { "name": "seal-rotation", "value": "25s linear infinite", "purpose": "Slow continuous rotation of circular verification stamp." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Action Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Sharp 0px rectangular CTA filled in carbon ink with uppercase mono label.",
+      "html": "<button class=\"ds-btn-primary\">+ NUEVO PRODUCTO</button>",
+      "css": ".ds-btn-primary { background-color: #16181A; color: #F5F4F6; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 500; padding: 10px 16px; border: 1px solid #16181A; border-radius: 0px; cursor: pointer; transition: background-color 0.15s ease; } .ds-btn-primary:hover { background-color: #4A4E54; border-color: #4A4E54; } .ds-btn-primary:focus-visible { outline: 1.5px solid #16181A; outline-offset: 2px; }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Sharp 1px outline button with hairline border.",
+      "html": "<button class=\"ds-btn-secondary\">REGISTRAR STOCK →</button>",
+      "css": ".ds-btn-secondary { background-color: #FFFFFF; color: #16181A; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 500; padding: 10px 16px; border: 1px solid #16181A; border-radius: 0px; cursor: pointer; transition: all 0.15s ease; } .ds-btn-secondary:hover { background-color: #16181A; color: #F5F4F6; } .ds-btn-secondary:focus-visible { outline: 1.5px solid #16181A; outline-offset: 2px; }"
+    },
+    {
+      "name": "Critical Low-Stock Badge",
+      "kind": "chip",
+      "refersTo": "badge-critical",
+      "description": "Documentary status badge indicating stock equal to or below minimum threshold.",
+      "html": "<span class=\"ds-badge-critical\">STOCK BAJO · DÉFICIT 2 U.</span>",
+      "css": ".ds-badge-critical { display: inline-flex; align-items: center; background-color: #FEF2F2; color: #B91C1C; border: 1px solid #FCA5A5; font-family: 'DM Mono', monospace; font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 3px 8px; border-radius: 0px; }"
+    },
+    {
+      "name": "Verified In-Stock Badge",
+      "kind": "chip",
+      "refersTo": "badge-verified",
+      "description": "Documentary badge indicating healthy inventory level above safety threshold.",
+      "html": "<span class=\"ds-badge-verified\">DISPONIBLE · 50 U.</span>",
+      "css": ".ds-badge-verified { display: inline-flex; align-items: center; background-color: #F0FDF4; color: #15803D; border: 1px solid #86EFAC; font-family: 'DM Mono', monospace; font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 3px 8px; border-radius: 0px; }"
+    },
+    {
+      "name": "Form Input Field",
+      "kind": "input",
+      "refersTo": "input-field",
+      "description": "Standard sharp input field on bright surface with carbon ink caret and focus ring.",
+      "html": "<input type=\"text\" class=\"ds-input\" placeholder=\"COM-00001-01\" value=\"COM-00001-01\" />",
+      "css": ".ds-input { background-color: #FFFFFF; color: #16181A; border: 1px solid #C9C7C4; border-radius: 0px; font-family: 'DM Mono', monospace; font-size: 12px; padding: 8px 12px; caret-color: #16181A; width: 100%; box-sizing: border-box; } .ds-input:focus { border-color: #16181A; outline: 1.5px solid #16181A; outline-offset: 2px; }"
+    },
+    {
+      "name": "Registration Sheet Plate",
+      "kind": "card",
+      "refersTo": "sheet-plate",
+      "description": "Elevated sheet container framed in 1px structural hairline with registration crosshair marks.",
+      "html": "<div class=\"ds-sheet-plate\"><div class=\"ds-crosshair-tl\">+</div><div class=\"ds-crosshair-tr\">+</div><h3>Catálogo de existencias</h3><p>Auditoría física de almacén central</p></div>",
+      "css": ".ds-sheet-plate { position: relative; background-color: #FAF9FA; border: 1px solid #C9C7C4; padding: 24px; border-radius: 0px; font-family: 'Schibsted Grotesk', sans-serif; color: #16181A; } .ds-sheet-plate h3 { font-size: 16px; font-weight: 600; margin: 0 0 4px 0; } .ds-sheet-plate p { font-size: 13px; color: #4A4E54; margin: 0; } .ds-crosshair-tl { position: absolute; top: -6px; left: -6px; font-family: monospace; font-size: 12px; color: #16181A; line-height: 1; pointer-events: none; } .ds-crosshair-tr { position: absolute; top: -6px; right: -6px; font-family: monospace; font-size: 12px; color: #16181A; line-height: 1; pointer-events: none; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "Pliego de Registro Editorial",
+    "overview": "TechStock operates as a high-precision Swiss editorial plate register printed on uncoated paper stock. It refuses the generic dark-slate and neon SaaS dashboard rut in favor of exposed 1px hairlines, corner registration crosshairs (+), deep carbon ink, and absolute typographic fidelity. The system treats inventory records not as ephemeral cards, but as permanent, audited ledger sheets with physical presence and undeniable clarity.\n\nEvery inventory figure, SKU identifier, and stock movement is presented with documentary authority. The atmosphere subtly shifts across the viewport from warm uncoated paper (#FAF6F5) in the top-left to cool register tint (#EEF3EF) in the bottom-right, framing crisp elevated sheet cells (#FAF9FA and #FFFFFF). Minimum stock thresholds (stock <= stock_minimo) surface instantly through disciplined semantic ink without noisy gradients or decorative halos.",
+    "keyCharacteristics": [
+      "Uncoated editorial ground with subtle atmospheric drift and exposed structural hairlines (1px solid #C9C7C4).",
+      "Deep carbon typography in neo-grotesque Schibsted Grotesk paired with documentary DM Mono.",
+      "Sharp 0px corner geometry across buttons, cards, tables, inputs, and state pills.",
+      "Signature letterpressed periwinkle circular verification seal (88x88 SVG with rotating textPath).",
+      "Strict tabular numeral alignment (tabular-nums) across all SKUs, stock counts, and currency amounts."
+    ],
+    "rules": [
+      {
+        "name": "The Ink and Paper Rule",
+        "body": "No surface in TechStock uses pure black (#000000) or cold digital blue-gray. Ink is deep carbon (#16181A), and paper is warm uncoated neutral (#F5F4F6), preserving the documentary character of a physical ledger.",
+        "section": "colors"
+      },
+      {
+        "name": "The Semantic Reserve Rule",
+        "body": "Vibrant colors are banned from decorative ornamentation. Red, amber, and green exist solely to convey inventory availability, stock deficits, and movement transactions.",
+        "section": "colors"
+      },
+      {
+        "name": "The No-Eyebrow Rule",
+        "body": "A kicker or eyebrow above a heading is strictly banned. Headings speak for themselves; contextual module coordinates belong in the sticky top token bar, to the right, or beneath the heading as a secondary description.",
+        "section": "typography"
+      },
+      {
+        "name": "The Tabular Precision Rule",
+        "body": "All numeric columns, currency amounts in Soles (S/), inventory quantities, and SKU codes must specify tabular-nums (font-variant-numeric: tabular-nums) so numbers stack in perfect vertical columns.",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat-By-Default Rule",
+        "body": "Hard offset shadows (4px 4px 0) and heavy colored glows are prohibited. Structural separation is achieved via 1px solid #C9C7C4 hairlines and shifts between #FAF9FA sheet plates and #FFFFFF data cells.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Dual Paper Register Rule",
+        "body": "The dark theme is not a synthetic dark-slate skin, but an authentic carbon-paper plate register ('Pliego de Carbón'). Primary buttons invert cleanly between solid carbon ink on paper (#16181A) and solid chalk ink on carbon (#F0EFEA), maintaining instant visual hierarchy.",
+        "section": "colors"
+      }
+    ],
+    "dos": [
+      "Do format all numerical amounts, SKU codes, stock figures, and dates with tabular-nums and monospace styling.",
+      "Do frame analytical plates and major headers with 12x12 SVG registration crosshairs (+) at the corners.",
+      "Do style browser surfaces: ::selection in #DCDDF3, custom #C9C7C4 scrollbars, and explicit #16181A focus rings.",
+      "Do compute low stock strictly with the determinist rule: stock <= stock_minimo.",
+      "Do use crisp inline SVGs with consistent 1.5px or 1.25px stroke for all icons."
+    ],
+    "donts": [
+      "Don't ever place a kicker or eyebrow label directly above an <h1>, <h2>, or <h3> heading.",
+      "Don't use colored border-left or border-right exceeding 1px on cards, table rows, or alert banners.",
+      "Don't apply hard offset block drop shadows (box-shadow: 4px 4px 0) or glowing zero-offset halos.",
+      "Don't use emojis or Unicode symbols as icons; draw authored, stroke-consistent inline SVGs.",
+      "Don't use generic dark slate, pure black (#000000), or neon accents that break the uncoated editorial register aesthetic."
+    ]
+  }
+}
