@@ -4,9 +4,7 @@
 !/storage/logs/.gitignore
 
 # Environment & local settings
-.env
 .env.backup
-.env.production
 .env.*.local
 
 # Databases & local stores
@@ -65,10 +63,9 @@ Thumbs.db
 /.fleet
 /.idea
 /.nova
-/.vscode
 /.zed
 Homestead.json
 Homestead.yaml
 
 .vercel
-.env*
+config.bat

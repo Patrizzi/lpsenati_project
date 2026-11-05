@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\StockMovement;
+use App\Models\Supplier;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Symfony\Component\HttpFoundation\StreamedResponse;
@@ -32,6 +34,26 @@ class ReportController extends Controller
         $topStockProducts = (clone $query)
             ->orderByDesc('stock')
             ->limit(10)
+            ->get();
+
+        // Datos consolidados para todos los gráficos y subsecciones
+        $allProducts = (clone $query)->orderByDesc('stock')->get();
+        $alertProducts = (clone $query)
+            ->lowStock()
+            ->orderByRaw('(stock_minimo - stock) DESC')
+            ->orderBy('stock', 'ASC')
+            ->get();
+        $criticalCount = $alertProducts->where('stock', '<=', 0)->count();
+        $totalDeficit = $alertProducts->sum(fn(Product $p) => max(0, $p->stock_minimo - $p->stock));
+
+        $suppliersBreakdown = Supplier::withCount('products')
+            ->withSum('products', 'stock')
+            ->orderBy('nombre')
+            ->get();
+
+        $allMovements = StockMovement::with('product')
+            ->orderBy('fecha')
+            ->orderBy('id')
             ->get();
 
         // Distribución por categorías
@@ -64,7 +86,13 @@ class ReportController extends Controller
             'totalValuation',
             'lowStockCount',
             'topStockProducts',
-            'categoryBreakdown'
+            'categoryBreakdown',
+            'allProducts',
+            'alertProducts',
+            'criticalCount',
+            'totalDeficit',
+            'suppliersBreakdown',
+            'allMovements'
         ));
     }
 
