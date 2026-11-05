@@ -40,7 +40,8 @@ class ProductController extends Controller
 
         $products = $query->paginate(20)->withQueryString();
         $categories = Category::orderBy('nombre')->get();
-        $suppliers = Supplier::orderBy('nombre')->get();
+        $suppliers = Supplier::withCount('products')->orderBy('nombre')->get();
+        $allProductsForCharts = Product::with(['category', 'supplier'])->orderByDesc('stock')->get();
 
         $editingProduct = null;
         if ($request->filled('edit')) {
@@ -51,7 +52,8 @@ class ProductController extends Controller
             'products',
             'categories',
             'suppliers',
-            'editingProduct'
+            'editingProduct',
+            'allProductsForCharts'
         ));
     }
 

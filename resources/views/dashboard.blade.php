@@ -130,6 +130,32 @@
         </div>
     </div>
 
+    <!-- ApexCharts Section in Dashboard -->
+    <div class="grid grid-cols-1 gap-4 md:gap-6 xl:grid-cols-12 2xl:gap-7.5">
+        <!-- Chart 1: Unidades y Artículos por Categoría (8 cols) -->
+        <div class="rounded-sm border border-stroke bg-white p-6 shadow-default dark:border-strokedark dark:bg-boxdark xl:col-span-8">
+            <div class="flex items-center justify-between pb-3 border-b border-stroke dark:border-strokedark mb-4">
+                <div>
+                    <h3 class="text-base font-bold text-black dark:text-white">Volumen de Existencias por Familia</h3>
+                    <p class="text-xs text-body dark:text-bodydark">Comparativa de unidades físicas y cantidad de referencias por categoría</p>
+                </div>
+                <span class="rounded bg-primary/10 px-2.5 py-1 text-xs font-semibold text-primary">ApexCharts</span>
+            </div>
+            <div id="dash-chart-categories" class="w-full min-h-[300px]"></div>
+        </div>
+
+        <!-- Chart 2: Estado de Salud del Inventario (4 cols) -->
+        <div class="rounded-sm border border-stroke bg-white p-6 shadow-default dark:border-strokedark dark:bg-boxdark xl:col-span-4">
+            <div class="flex items-center justify-between pb-3 border-b border-stroke dark:border-strokedark mb-4">
+                <div>
+                    <h3 class="text-base font-bold text-black dark:text-white">Salud del Stock</h3>
+                    <p class="text-xs text-body dark:text-bodydark">Disponibles vs. Stock bajo y Agotados</p>
+                </div>
+            </div>
+            <div id="dash-chart-health" class="w-full min-h-[300px] flex items-center justify-center"></div>
+        </div>
+    </div>
+
     <!-- Two-Column Operational Split: Categories & Critical Attention -->
     <div class="grid grid-cols-1 gap-4 md:gap-6 xl:grid-cols-12 2xl:gap-7.5">
         <!-- Left: Category Distribution (5 cols) -->
@@ -145,7 +171,7 @@
                     </a>
                 </div>
 
-                <div class="space-y-4">
+                <div class="box-scroller space-y-4 pr-2" style="max-height: 340px;">
                     @forelse($categoryDistribution ?? [] as $cat)
                         @php
                             $catStock = $cat->total_stock ?? $cat->products_sum_stock ?? 0;
@@ -196,7 +222,7 @@
                 </div>
 
                 @if(!empty($lowStockProducts) && count($lowStockProducts) > 0)
-                    <div class="divide-y divide-stroke dark:divide-strokedark">
+                    <div class="box-scroller divide-y divide-stroke dark:divide-strokedark pr-2" style="max-height: 340px;">
                         @foreach($lowStockProducts as $item)
                             <div class="py-3.5 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                                 <div>
@@ -251,7 +277,7 @@
     </div>
 
     <!-- Bottom Full-Width Table: Movimientos Recientes -->
-    <div class="rounded-sm border border-stroke bg-white px-5 pt-6 pb-2.5 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5 xl:pb-1">
+    <div class="rounded-sm border border-stroke bg-white px-5 pt-6 pb-4 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5">
         <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-4 mb-4 border-b border-stroke dark:border-strokedark gap-2">
             <div>
                 <h3 class="text-xl font-semibold text-black dark:text-white">Movimientos Recientes</h3>
@@ -262,16 +288,16 @@
             </a>
         </div>
 
-        <div class="max-w-full overflow-x-auto">
+        <div class="box-scroller max-w-full">
             <table class="w-full table-auto">
                 <thead>
                     <tr class="bg-gray-2 text-left dark:bg-meta-4">
-                        <th class="py-4 px-4 font-medium text-black dark:text-white text-xs uppercase">Fecha y Hora</th>
-                        <th class="py-4 px-4 font-medium text-black dark:text-white text-xs uppercase">Producto / SKU</th>
-                        <th class="py-4 px-4 font-medium text-black dark:text-white text-xs uppercase">Tipo</th>
-                        <th class="py-4 px-4 font-medium text-black dark:text-white text-xs uppercase text-right">Cantidad</th>
-                        <th class="py-4 px-4 font-medium text-black dark:text-white text-xs uppercase text-right">Balance</th>
-                        <th class="py-4 px-4 font-medium text-black dark:text-white text-xs uppercase">Motivo</th>
+                        <th class="py-4 px-4 font-medium text-black dark:text-white text-xs uppercase bg-gray-2 dark:bg-meta-4">Fecha y Hora</th>
+                        <th class="py-4 px-4 font-medium text-black dark:text-white text-xs uppercase bg-gray-2 dark:bg-meta-4">Producto / SKU</th>
+                        <th class="py-4 px-4 font-medium text-black dark:text-white text-xs uppercase bg-gray-2 dark:bg-meta-4">Tipo</th>
+                        <th class="py-4 px-4 font-medium text-black dark:text-white text-xs uppercase text-right bg-gray-2 dark:bg-meta-4">Cantidad</th>
+                        <th class="py-4 px-4 font-medium text-black dark:text-white text-xs uppercase text-right bg-gray-2 dark:bg-meta-4">Balance</th>
+                        <th class="py-4 px-4 font-medium text-black dark:text-white text-xs uppercase bg-gray-2 dark:bg-meta-4">Motivo</th>
                     </tr>
                 </thead>
                 <tbody class="divide-y divide-[#eee] dark:divide-strokedark">
@@ -315,4 +341,47 @@
         </div>
     </div>
 </div>
+
+@php
+    $dashCatNames = ($categoryDistribution ?? collect())->pluck('nombre')->values();
+    $dashCatStocks = ($categoryDistribution ?? collect())->map(fn($c) => (int) ($c->total_stock ?? $c->products_sum_stock ?? 0))->values();
+    $dashCatCounts = ($categoryDistribution ?? collect())->map(fn($c) => (int) ($c->products_count ?? 0))->values();
+    $dashZeroCount = ($lowStockProducts ?? collect())->where('stock', '<=', 0)->count();
+    $dashWarningCount = max(0, ($lowStockCount ?? 0) - $dashZeroCount);
+    $dashHealthyCount = max(0, ($totalProducts ?? 0) - ($lowStockCount ?? 0));
+@endphp
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        if (typeof ApexCharts === 'undefined') return;
+
+        const elCat = document.querySelector('#dash-chart-categories');
+        if (elCat) {
+            new ApexCharts(elCat, {
+                chart: { type: 'bar', height: 310, toolbar: { show: false }, fontFamily: 'Satoshi, sans-serif' },
+                series: [
+                    { name: 'Unidades en Stock', data: @json($dashCatStocks) },
+                    { name: 'Artículos Registrados', data: @json($dashCatCounts) }
+                ],
+                colors: ['#3C50E0', '#10B981'],
+                plotOptions: { bar: { borderRadius: 4, columnWidth: '55%' } },
+                dataLabels: { enabled: false },
+                xaxis: { categories: @json($dashCatNames) },
+                legend: { position: 'top' }
+            }).render();
+        }
+
+        const elHealth = document.querySelector('#dash-chart-health');
+        if (elHealth) {
+            new ApexCharts(elHealth, {
+                chart: { type: 'donut', height: 310, fontFamily: 'Satoshi, sans-serif' },
+                series: [{{ $dashHealthyCount }}, {{ $dashWarningCount }}, {{ $dashZeroCount }}],
+                labels: ['Disponibles (Óptimo)', 'Stock Bajo (En Umbral)', 'Agotados (Stock 0)'],
+                colors: ['#10B981', '#F0950C', '#FB5454'],
+                legend: { position: 'bottom' },
+                plotOptions: { pie: { donut: { size: '65%' } } }
+            }).render();
+        }
+    });
+</script>
 @endsection
