@@ -55,6 +55,36 @@
     <link rel="preconnect" href="https://api.fontshare.com">
     <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,600,700&display=swap" rel="stylesheet">
 
+    <!-- ApexCharts Library -->
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
+    <style>
+        /* Sleek internal scroller for data cards and tables */
+        .box-scroller {
+            max-height: 420px;
+            overflow-y: auto;
+            overflow-x: auto;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(100, 116, 139, 0.4) transparent;
+        }
+        .box-scroller::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        .box-scroller::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .box-scroller::-webkit-scrollbar-thumb {
+            background-color: rgba(100, 116, 139, 0.4);
+            border-radius: 9999px;
+        }
+        .box-scroller thead th {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+    </style>
+
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="h-full font-satoshi bg-whiten text-body antialiased dark:bg-boxdark-2 dark:text-bodydark">
@@ -62,6 +92,18 @@
         $navLowStockCount = \Illuminate\Support\Facades\Schema::hasTable('products') 
             ? \App\Models\Product::whereColumn('stock', '<=', 'stock_minimo')->count() 
             : 0;
+
+        $currentSection = match(true) {
+            request()->routeIs('dashboard') => 'Panel Principal',
+            request()->routeIs('products.*') => 'Productos',
+            request()->routeIs('categories.*') => 'Categorías',
+            request()->routeIs('suppliers.*') => 'Proveedores',
+            request()->routeIs('movements.*') => 'Movimientos',
+            request()->routeIs('alerts.*') => 'Alertas',
+            request()->routeIs('reports.*') => 'Reportes',
+            request()->routeIs('profile.*') => 'Mi Perfil',
+            default => $title ?? 'Panel Principal',
+        };
     @endphp
 
     <!-- Mobile Sidebar Backdrop Overlay -->
@@ -231,14 +273,11 @@
                         </a>
                     </div>
 
-                    <!-- Breadcrumb / Status text for desktop -->
+                    <!-- Breadcrumb / Current Section text for desktop -->
                     <div class="hidden sm:flex items-center gap-2 text-sm">
-                        <span class="font-medium text-black dark:text-white">{{ $title ?? 'Centro de Control' }}</span>
+                        <a href="{{ route('dashboard') }}" class="font-medium text-black hover:text-primary dark:text-white dark:hover:text-primary transition">Centro de Control</a>
                         <span class="text-bodydark2">/</span>
-                        <span class="inline-flex items-center gap-1.5 text-xs font-medium text-success">
-                            <span class="h-2 w-2 rounded-full bg-success"></span>
-                            Sistema en línea
-                        </span>
+                        <span class="font-semibold text-primary">{{ $currentSection }}</span>
                     </div>
 
                     <!-- Header Right Controls -->

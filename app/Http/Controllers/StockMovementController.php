@@ -32,6 +32,7 @@ class StockMovementController extends Controller
         }
 
         $movements = $movementsQuery->paginate(20)->withQueryString();
+        $allMovementsForCharts = StockMovement::with('product')->orderBy('fecha')->orderBy('id')->get();
 
         $selectedProductId = $request->input('product_id');
         $selectedTipo = $request->input('tipo', 'entrada');
@@ -40,7 +41,8 @@ class StockMovementController extends Controller
             'products',
             'movements',
             'selectedProductId',
-            'selectedTipo'
+            'selectedTipo',
+            'allMovementsForCharts'
         ));
     }
 
